@@ -47,6 +47,7 @@ class MapStudentVC: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     
     private func placePin() {
         let mkAnnotation = MKPointAnnotation()
+        print("placeMark=\(placeMark)")
         let lat = CLLocationDegrees((placeMark.location?.coordinate.latitude)!)
         let long = CLLocationDegrees((placeMark.location?.coordinate.longitude)!)
         let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)

@@ -22,7 +22,7 @@ class AddLocationVC: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        address.delegate = self
+        self.address.delegate = self
     }
     
     @IBAction func findOnTheMap(_ sender: Any) {
@@ -35,19 +35,17 @@ class AddLocationVC: UIViewController, UITextViewDelegate {
                 self.performSegue(withIdentifier: "segueMapStudent", sender: self)
             }else {
         }
-        
-        
     }
-        
-    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueMapStudent" {
-            let mapStudentVC = segue.destination as! MapStudentVC
-            mapStudentVC.placeMark = placeMark
-            mapStudentVC.mapString = address.text
+            let mapStudentViewController = segue.destination as! MapStudentVC
+            mapStudentViewController.placeMark = placeMark
+            mapStudentViewController.mapString = address.text
         }
     }
-
-}
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
@@ -56,5 +54,6 @@ class AddLocationVC: UIViewController, UITextViewDelegate {
         }
         return true
     }
+    
     
 }

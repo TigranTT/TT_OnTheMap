@@ -61,7 +61,6 @@
                                         </state>
                                         <connections>
                                             <action selector="authenticate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Vd-N1-83U"/>
-                                            <segue destination="bcV-a5-PgM" kind="show" id="UoY-sx-ntx"/>
                                         </connections>
                                     </button>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="uIr-iG-PJ2">
@@ -363,7 +362,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DUm-IF-Voq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="icon_mapview-selected" selectedImage="icon_mapview-selected" id="6n3-Bg-HYn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="40m-Ie-lfi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="40m-Ie-lfi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -382,7 +381,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xtY-Uo-s4h" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" image="icon_listview-deselected" selectedImage="icon_listview-selected" id="744-XI-fKS"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JtP-8i-2VJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JtP-8i-2VJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.93977439399999996" green="0.55330431459999996" blue="0.20778216420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
