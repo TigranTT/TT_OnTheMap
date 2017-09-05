@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var emailLogin: UITextField!
@@ -17,21 +17,37 @@ class LoginVC: UIViewController {
     @IBOutlet weak var errorLogin: UITextView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(true)
         showActivityIndicator(false)
+        passwordLogin.text = ""
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func doneClicked() {
+        view.endEditing(true)
+    }
     
     @IBAction func authenticate(_ sender: Any) {
         print("Login button pressed")
         errorLogin.text = ""
         authenticate(emailLogin.text!, passwordLogin.text!)
         showActivityIndicator(true)
+        doneClicked()
+        
     }
     
     func authenticate(_ userName: String, _ password: String) {

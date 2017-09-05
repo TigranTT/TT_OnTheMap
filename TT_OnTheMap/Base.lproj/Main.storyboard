@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,23 +32,23 @@
                                             <constraint firstAttribute="height" constant="200" id="4o9-2l-Esc"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2S-jV-0c3" userLabel="EmailLogin">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2S-jV-0c3" userLabel="EmailLogin" customClass="LoginTextField" customModule="TT_OnTheMap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="210" width="219" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="qlU-rf-HYd"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFY-BB-oKL" userLabel="PasswordLogin">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFY-BB-oKL" userLabel="PasswordLogin" customClass="LoginTextField" customModule="TT_OnTheMap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="260" width="219" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="cEq-qu-8ZU"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akT-fz-Qv3">
                                         <rect key="frame" x="0.0" y="310" width="219" height="30"/>
@@ -165,13 +166,22 @@
                                 <action selector="performLogOut:" destination="mb5-Aw-peX" id="ZgY-Rq-B1B"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="icon_addpin" id="7RF-cL-Iim">
-                            <connections>
-                                <action selector="addStudentLocation:" destination="mb5-Aw-peX" id="gig-Ni-KGY"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_refresh" id="7RF-cL-Iim" userLabel="refreshButton">
+                                <connections>
+                                    <action selector="refreshButton:" destination="mb5-Aw-peX" id="5DS-AI-ZYy"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="icon_addpin" id="u2t-5l-MU2" userLabel="addButton">
+                                <connections>
+                                    <action selector="addStudentLocation:" destination="mb5-Aw-peX" id="TXh-02-eRf"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="u2t-5l-MU2" id="bvj-KZ-4z2"/>
+                        <outlet property="logOutButton" destination="UPx-ee-0HK" id="KwX-A0-gwh"/>
                         <outlet property="mapView" destination="zmD-R1-1Kd" id="iC6-QD-38Z"/>
                     </connections>
                 </viewController>
@@ -292,11 +302,11 @@
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Web Link" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldc-x0-8aN">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Web Link" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldc-x0-8aN" customClass="LoginTextField" customModule="TT_OnTheMap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="48" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jrq-ru-vHA">
                                         <rect key="frame" x="0.0" y="80" width="375" height="567"/>
@@ -359,7 +369,7 @@
         <!--Map-->
         <scene sceneID="aDe-gH-Xm7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DUm-IF-Voq" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Map" automaticallyAdjustsScrollViewInsets="NO" id="DUm-IF-Voq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="icon_mapview-selected" selectedImage="icon_mapview-selected" id="6n3-Bg-HYn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="40m-Ie-lfi">
@@ -378,7 +388,7 @@
         <!--List-->
         <scene sceneID="rUd-Un-oLb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xtY-Uo-s4h" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="List" automaticallyAdjustsScrollViewInsets="NO" id="xtY-Uo-s4h" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" image="icon_listview-deselected" selectedImage="icon_listview-selected" id="744-XI-fKS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JtP-8i-2VJ">
@@ -425,6 +435,7 @@
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>
+        <image name="icon_refresh" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
 </document>

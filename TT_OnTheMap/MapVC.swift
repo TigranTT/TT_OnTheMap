@@ -15,6 +15,12 @@ class MapVC: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBAction func refreshButton(_ sender: Any) {
+        reloadData()
+    }
+    
+    
+    
     @IBAction func addStudentLocation(_ sender: Any) {
         let controller = storyboard!.instantiateViewController(withIdentifier: "AddLocation") as! AddLocationVC
         

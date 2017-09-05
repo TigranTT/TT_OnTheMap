@@ -25,6 +25,10 @@ class AddLocationVC: UIViewController, UITextViewDelegate {
         self.address.delegate = self
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     @IBAction func findOnTheMap(_ sender: Any) {
         let clGeoEncoder = CLGeocoder()
         clGeoEncoder.geocodeAddressString(address.text) { (placemarks, error) in
@@ -54,6 +58,8 @@ class AddLocationVC: UIViewController, UITextViewDelegate {
         }
         return true
     }
+    
+    
     
     
 }

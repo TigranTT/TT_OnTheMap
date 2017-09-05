@@ -25,6 +25,8 @@ class MapStudentVC: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     @IBAction func submit(_ sender: Any) {
         let user = OnTheMapClient.sharedInstance().user!
         let studentLocation = StudentLocation(uniqueKey: user.uniqueKey, firstName: user.firstName, lastName: user.lastName, mapString: self.mapString, mediaURL: webLink.text!, latitude: (placeMark.location?.coordinate.latitude)!, longitude: (placeMark.location?.coordinate.longitude)!)
+        let controller = storyboard!.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
+        present(controller, animated: true, completion: nil)
         OnTheMapClient.sharedInstance().postStudentLocation(studentLocation) { (success, errorString) in
             performUIUpdatesOnMain {
                 
@@ -44,6 +46,11 @@ class MapStudentVC: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         placePin()
         
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     
     private func placePin() {
         let mkAnnotation = MKPointAnnotation()
@@ -86,6 +93,7 @@ class MapStudentVC: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         return true
     }
     
-    
-    
+
+
 }
+

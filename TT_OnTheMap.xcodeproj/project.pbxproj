@@ -11,6 +11,7 @@
 		C40E969E1F536BB7002511FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40E969C1F536BB7002511FB /* Main.storyboard */; };
 		C40E96A01F536BB7002511FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C40E969F1F536BB7002511FB /* Assets.xcassets */; };
 		C40E96A31F536BB7002511FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40E96A11F536BB7002511FB /* LaunchScreen.storyboard */; };
+		C41363141F5E49FB0058158B /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41363131F5E49FB0058158B /* LoginTextField.swift */; };
 		C45481471F538FE6007FB42B /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45481461F538FE6007FB42B /* TabBarVC.swift */; };
 		C45481491F53902A007FB42B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45481481F53902A007FB42B /* LoginVC.swift */; };
 		C454814B1F5390AA007FB42B /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454814A1F5390AA007FB42B /* MapVC.swift */; };
@@ -33,6 +34,7 @@
 		C40E969F1F536BB7002511FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C40E96A21F536BB7002511FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C40E96A41F536BB7002511FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C41363131F5E49FB0058158B /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		C45481461F538FE6007FB42B /* TabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		C45481481F53902A007FB42B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C454814A1F5390AA007FB42B /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				C45481551F53B9E4007FB42B /* StudentLocation.swift */,
 				C45481571F53BA0B007FB42B /* User.swift */,
 				C454815F1F53C20A007FB42B /* OnTheMapExtension.swift */,
+				C41363131F5E49FB0058158B /* LoginTextField.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				C45481541F53B997007FB42B /* OnTheMap.swift in Sources */,
 				C40E96991F536BB7002511FB /* AppDelegate.swift in Sources */,
 				C45F507B1F5D0CD000F7E957 /* MapStudentVC.swift in Sources */,
+				C41363141F5E49FB0058158B /* LoginTextField.swift in Sources */,
 				C45481581F53BA0B007FB42B /* User.swift in Sources */,
 				C454815A1F53BA4E007FB42B /* OnTheMapClient.swift in Sources */,
 				C45481491F53902A007FB42B /* LoginVC.swift in Sources */,
