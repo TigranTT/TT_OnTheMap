@@ -9,7 +9,7 @@
 import Foundation
 
 class OnTheMapClient: NSObject {
-    // Shared URLSession Object
+    
     var urlSession = URLSession.shared
     
     var onTheMap: OnTheMap!

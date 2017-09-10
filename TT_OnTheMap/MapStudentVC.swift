@@ -11,12 +11,18 @@ import MapKit
 
 class MapStudentVC: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     
-    var placeMark: CLPlacemark!
-    
-    var mapString: String!
-    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var webLink: UITextField!
+    
+    var placeMark: CLPlacemark!
+    var mapString: String!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        webLink.delegate = self
+        placePin()
+        
+    }
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -33,18 +39,10 @@ class MapStudentVC: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
                 if success {
                     print(success)
                 }else {
+                    self.showAlert("Error Message", message: "Student location, post failed")
                 }
             }
-            
         }
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        webLink.delegate = self
-        placePin()
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -66,6 +64,13 @@ class MapStudentVC: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         mapView.setRegion(mkRegion, animated: true)
         
     }
+    
+    private func showAlert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: OnTheMapClient.Alerts.DismissAlert, style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         

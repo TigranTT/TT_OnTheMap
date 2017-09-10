@@ -202,7 +202,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OTb-V7-ebb">
-                                <rect key="frame" x="46" y="80" width="283" height="260"/>
+                                <rect key="frame" x="46" y="80" width="283" height="370"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where are You studying today?" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Eg-1x-kgc">
                                         <rect key="frame" x="0.0" y="0.0" width="283" height="50"/>
@@ -222,8 +222,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="vpr-pK-hyn">
+                                        <rect key="frame" x="0.0" y="230" width="283" height="20"/>
+                                        <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSq-c7-Tqe">
-                                        <rect key="frame" x="0.0" y="230" width="283" height="30"/>
+                                        <rect key="frame" x="0.0" y="265" width="283" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.62352941179999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="rtP-JJ-rrn"/>
@@ -236,6 +240,14 @@
                                             <action selector="findOnTheMap:" destination="Xsy-CH-6nW" eventType="touchUpInside" id="eLd-Js-30g"/>
                                         </connections>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zwa-HQ-ohp" userLabel="ErrorLogin">
+                                        <rect key="frame" x="0.0" y="310" width="283" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="7tx-0V-aKq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oDk-XQ-3s6">
@@ -266,7 +278,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="vpr-pK-hyn" id="phU-Re-v1b"/>
                         <outlet property="address" destination="iv9-9a-Ofe" id="Oiw-CD-nCw"/>
+                        <outlet property="errorLogin" destination="zwa-HQ-ohp" id="xck-qN-j1o"/>
                         <segue destination="K4I-Em-rvr" kind="presentation" identifier="segueMapStudent" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="QYd-DA-S0L"/>
                     </connections>
                 </viewController>
@@ -348,10 +362,10 @@
             </objects>
             <point key="canvasLocation" x="4191" y="38"/>
         </scene>
-        <!--Tab BarVC-->
+        <!--Tab Bar Controller-->
         <scene sceneID="gv2-KL-Yxq">
             <objects>
-                <tabBarController storyboardIdentifier="TabBar" id="bcV-a5-PgM" customClass="TabBarVC" customModule="TT_OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" id="bcV-a5-PgM" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Hq1-U3-P7T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -10,27 +10,31 @@ import UIKit
 import MapKit
 
 class AddLocationVC: UIViewController, UITextViewDelegate {
-
-    @IBAction func cancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     
     @IBOutlet weak var address: UITextView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var errorLogin: UITextView!
     
     var placeMark: CLPlacemark!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.address.delegate = self
+        activityIndicator.stopAnimating()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
+    
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func findOnTheMap(_ sender: Any) {
         let clGeoEncoder = CLGeocoder()
+        activityIndicator.startAnimating()
         clGeoEncoder.geocodeAddressString(address.text) { (placemarks, error) in
             if error == nil {
                 if let placemarks = placemarks {
@@ -38,9 +42,11 @@ class AddLocationVC: UIViewController, UITextViewDelegate {
                 }
                 self.performSegue(withIdentifier: "segueMapStudent", sender: self)
             }else {
+                self.errorLogin.text = "Address not found"
+            }
+            self.activityIndicator.stopAnimating()
         }
     }
- }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

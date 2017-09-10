@@ -18,19 +18,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
-        super .viewWillAppear(true)
+        super.viewWillAppear(true)
         showActivityIndicator(false)
         passwordLogin.text = ""
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -47,7 +38,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         authenticate(emailLogin.text!, passwordLogin.text!)
         showActivityIndicator(true)
         doneClicked()
-        
     }
     
     func authenticate(_ userName: String, _ password: String) {
@@ -73,7 +63,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         let controller = storyboard!.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
         present(controller, animated: true, completion: nil)
     }
-    
     
     private func showActivityIndicator (_ show: Bool = true) {
         if show {

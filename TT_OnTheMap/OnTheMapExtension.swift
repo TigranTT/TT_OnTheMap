@@ -23,7 +23,6 @@ extension OnTheMapClient {
                             let user = results["\(JSONResponseKeys.user)"] as! [String: AnyObject]
                             self.user = User(user)
                         }
-                        
                     }
                 }
             }
@@ -50,7 +49,6 @@ extension OnTheMapClient {
             }
             completionHandlerForGetStudentLocations(success, errorString)
         }
-        
     }
     
     func postStudentLocation(_ studentLocation: StudentLocation, completionHanderForPOSTStudentLocation: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
@@ -61,7 +59,6 @@ extension OnTheMapClient {
                 print("post failed")
             }
             completionHanderForPOSTStudentLocation(success, errorString)
-            
         }
     }
     
@@ -78,9 +75,14 @@ extension OnTheMapClient {
                 print(error)
                 if error.code == 403 {
                     completionHandlerForGetSession(false, nil, "Login failed for User: \(userName). Please check credentials.")
+                //per reviewer's request implementing error if no internet connection
+                }else if Reachability.isConnectedToNetwork() == false {
+                    completionHandlerForGetSession(false, nil, "Please check internet connection")
                 }else {
                     completionHandlerForGetSession(false, nil, "Unable to login: \(userName).")
                 }
+                //per reviewer's request implementing error if no internet connection
+                print("error code: \(error.code).")
             }else {
                 let ontheMap = OnTheMap(results as! [String : AnyObject])
                 completionHandlerForGetSession(true, ontheMap, nil)
@@ -111,7 +113,6 @@ extension OnTheMapClient {
             }else {
                 completionHandlerForDeleteSession(true, nil)
             }
-            
         }
     }
     
@@ -134,7 +135,6 @@ extension OnTheMapClient {
             }else {
                 completionHandlerForGetStudentLocations(true, results, nil)
             }
-            
         }
     }
     
@@ -155,7 +155,6 @@ extension OnTheMapClient {
             }else {
                 completionHandlerForGetLoggedInUserDetails(true, results, nil)
             }
-            
         }
     }
     
@@ -176,7 +175,6 @@ extension OnTheMapClient {
             }else {
                 completionHandlerForPOSTStudentLocation(true, results, nil)
             }
-            
         }
     }
 }

@@ -19,8 +19,6 @@ class MapVC: UIViewController, MKMapViewDelegate {
         reloadData()
     }
     
-    
-    
     @IBAction func addStudentLocation(_ sender: Any) {
         let controller = storyboard!.instantiateViewController(withIdentifier: "AddLocation") as! AddLocationVC
         
@@ -42,28 +40,11 @@ class MapVC: UIViewController, MKMapViewDelegate {
         }
     }
     
-    
-    private func completeLogout() {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    private func displayError(_ errorString: String){
-        print(errorString)
-    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         reloadData()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -99,11 +80,24 @@ class MapVC: UIViewController, MKMapViewDelegate {
         }
     }
     
+    
+    
+    private func completeLogout() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    private func displayError(_ errorString: String){
+        print(errorString)
+    }
+    
     private func reloadData() {
         self.mapView.removeAnnotations(self.mapView.annotations)
         OnTheMapClient.sharedInstance().getStudentLocations(self) { (success, errorString) in
             performUIUpdatesOnMain {
-                if success {
+                //per reviewer's request implementing error if no internet connection
+                if Reachability.isConnectedToNetwork() == false {
+                    self.showAlert("Error Message", message: "Please check internet connection")
+                }else if success{
                     print("mapView success")
                     
                     let studentLocations: [StudentLocation] = StudentLocationCollection.all
@@ -120,12 +114,17 @@ class MapVC: UIViewController, MKMapViewDelegate {
                         
                     }
                     self.mapView.addAnnotations(annotations)
-                    
+                }else {
+                    self.showAlert("Error Message", message: "Failed to fetch student locations")
                 }
             }
-            
         }
-        
+    }
+    
+    private func showAlert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: OnTheMapClient.Alerts.DismissAlert, style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
 
