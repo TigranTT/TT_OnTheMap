@@ -51,7 +51,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 }else {
                     print("login failed")
                     if let errorString = errorString {
-                        self.errorLogin.text = errorString
+                        //per reviewer's request
+                        self.showAlert("Error Message", message: errorString)
+                        //self.errorLogin.text = errorString
                         self.showActivityIndicator(false)
                     }
                 }
@@ -70,6 +72,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         } else {
             activityIndicator.stopAnimating()
         }
+    }
+    
+    private func showAlert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: OnTheMapClient.Alerts.DismissAlert, style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

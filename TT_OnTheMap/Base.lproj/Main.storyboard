@@ -39,7 +39,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFY-BB-oKL" userLabel="PasswordLogin" customClass="LoginTextField" customModule="TT_OnTheMap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="260" width="219" height="40"/>
@@ -320,7 +320,7 @@
                                         <rect key="frame" x="0.0" y="48" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jrq-ru-vHA">
                                         <rect key="frame" x="0.0" y="80" width="375" height="567"/>
@@ -356,6 +356,7 @@
                     <connections>
                         <outlet property="mapView" destination="Jrq-ru-vHA" id="gBv-pD-v1I"/>
                         <outlet property="webLink" destination="ldc-x0-8aN" id="5qk-Hh-hdT"/>
+                        <segue destination="bcV-a5-PgM" kind="presentation" identifier="backTabBar" id="ObY-Z1-J4Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubq-Qg-fhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
